@@ -13,7 +13,7 @@ class Bus extends Model
      */
     protected $fillable = [
         'nama',
-        'play_nomor',
+        'plat_nomor',
         'jumlah_kursi',
         'type',
         'is_active',
