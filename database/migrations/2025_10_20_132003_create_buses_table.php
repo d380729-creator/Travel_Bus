@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('jumlah_kursi');
             $table->enum('type', ['AC', 'Non-AC', 'Executive']);
             $table->boolean('is_active')->default(true);
+            $table->string('current_location')->nullable();
             $table->timestamps();
         });
     }

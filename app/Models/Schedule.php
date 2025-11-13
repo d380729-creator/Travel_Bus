@@ -6,11 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Schedule extends Model
 {
-         /**
-     * fillable
-     *
-     * @var array
-     */
     protected $fillable = [
         'bus_id',
         'route_id',
@@ -18,6 +13,21 @@ class Schedule extends Model
         'waktu_kedatangan',
         'kursi_tersedia',
         'harga',
+        'status',
     ];
 
+    public function bus()
+    {
+        return $this->belongsTo(Bus::class);
+    }
+
+    public function route()
+    {
+        return $this->belongsTo(Route::class);
+    }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }

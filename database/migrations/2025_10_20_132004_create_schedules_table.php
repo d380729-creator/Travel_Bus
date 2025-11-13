@@ -19,6 +19,7 @@ return new class extends Migration
             $table->dateTime('waktu_kedatangan');
             $table->integer('kursi_tersedia');
             $table->decimal('harga', 10, 2);
+            $table->enum('status', ['upcoming', 'ongoing', 'completed'])->default('upcoming');
             $table->timestamps();
         });
     }

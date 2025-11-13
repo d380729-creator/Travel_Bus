@@ -6,14 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Booking extends Model
 {
-      /**
-     * fillable
-     *
-     * @var array
-     */
     protected $fillable = [
         'kode_pemesanan',
-        'jadwal_id',
+        'schedule_id',         // <- ubah dari 'jadwal_id'
         'nama_penumpang',
         'email_penumpang',
         'telepon_penumpang',
@@ -22,4 +17,10 @@ class Booking extends Model
         'status',
         'notes',
     ];
+
+    // Relationship ke Schedule
+    public function schedule()
+    {
+        return $this->belongsTo(Schedule::class);
+    }
 }

@@ -12,15 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('routes', function (Blueprint $table) {
-            $table->id();
-            $table->string('asal');
-            $table->string('tujuan');
-            $table->integer('jarak_km');
-            $table->integer('estimated_duration_minutes');
-            $table->decimal('harga_dasar', 10, 2);
-            $table->text('deskripsi')->nullable();
-            $table->timestamps();
-        });
+        $table->id();
+        $table->foreignId('asal_terminal_id')->constrained('terminals')->onDelete('cascade');
+        $table->foreignId('tujuan_terminal_id')->constrained('terminals')->onDelete('cascade');
+        $table->integer('jarak_km');
+        $table->integer('estimated_duration_minutes');
+        $table->decimal('harga_dasar', 10, 2);
+        $table->text('deskripsi')->nullable();
+        $table->timestamps();
+    });
+
     }
 
     /**
